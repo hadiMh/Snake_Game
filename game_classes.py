@@ -5,7 +5,7 @@ from constants import Colors
 
 
 class Snake(pygame.sprite.Sprite):
-    SNAKE_SQUARES_LENGTH = 20
+    SNAKE_SQUARES_LENGTH = SQUARE_LENGTH
     SNAKE_SQUARES_COLOR = Colors.M_PINK
     DIRECTIONS = {
         'UP': (0, -1 * SNAKE_SQUARES_LENGTH),
