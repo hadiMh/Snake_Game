@@ -3,6 +3,8 @@ from pygame import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, SQUARE_LENGTH
 from constants import Colors
 
+from game_classes import Snake
+
 pygame.init()
 main_screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -24,6 +26,8 @@ def draw_grid(surface):
             pygame.draw.rect(surface, square_color, rect)
 
 
+snake = Snake()
+
 running = True
 while running:
 
@@ -36,8 +40,13 @@ while running:
             if event.key == K_ESCAPE:
                 running = False
 
+    pressed_keys = pygame.key.get_pressed()
+
     main_screen.fill(Colors.WHITE)
     draw_grid(main_screen)
+
+    snake.update(pressed_keys)
+    main_screen.blit(snake.surface, snake.rect)
 
     pygame.display.flip()
 
