@@ -44,13 +44,13 @@ class Snake(pygame.sprite.Sprite):
         self.snake_body.pop()
 
         if self.rect.x < 0:
-            self.rect.x += SCREEN_WIDTH
+            self.rect.x += SCREEN_WIDTH + SQUARE_LENGTH
         if self.rect.y < 0:
-            self.rect.y += SCREEN_HEIGHT
+            self.rect.y += SCREEN_HEIGHT + SQUARE_LENGTH
         if self.rect.x > SCREEN_WIDTH:
-            self.rect.x -= SCREEN_WIDTH + SQUARE_LENGTH
+            self.rect.x -= SCREEN_WIDTH + 2 * SQUARE_LENGTH
         if self.rect.y > SCREEN_HEIGHT:
-            self.rect.y -= SCREEN_HEIGHT + SQUARE_LENGTH
+            self.rect.y -= SCREEN_HEIGHT + 2 * SQUARE_LENGTH
 
     def draw(self, surface):
         for rect in self.snake_body:
