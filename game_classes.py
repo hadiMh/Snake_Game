@@ -1,4 +1,5 @@
 import pygame
+import random
 from pygame import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, SQUARE_LENGTH
 from constants import Colors
@@ -54,3 +55,18 @@ class Snake(pygame.sprite.Sprite):
     def draw(self, surface):
         for rect in self.snake_body:
             pygame.draw.rect(surface, Snake.SNAKE_SQUARES_COLOR, rect)
+
+
+class Food(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Food, self).__init__()
+
+        self.surface = pygame.Surface((Snake.SNAKE_SQUARES_LENGTH, Snake.SNAKE_SQUARES_LENGTH))
+        self.surface.fill(Colors.WHITE)
+        pygame.draw.circle(self.surface, Colors.RED, (Snake.SNAKE_SQUARES_LENGTH / 2,) * 2, 5)
+        self.rect = self.surface.get_rect(
+            center=(
+                (random.randint(0, SCREEN_WIDTH) // SQUARE_LENGTH + 0.5) * SQUARE_LENGTH,
+                (random.randint(0, SCREEN_HEIGHT) // SQUARE_LENGTH + 0.5) * SQUARE_LENGTH,
+            )
+        )

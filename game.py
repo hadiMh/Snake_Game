@@ -3,7 +3,7 @@ from pygame import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, SQUARE_LENGTH
 from constants import Colors
 
-from game_classes import Snake
+from game_classes import Snake, Food
 
 pygame.init()
 main_screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -27,6 +27,7 @@ def draw_grid(surface):
 
 
 snake = Snake()
+food = Food()
 
 running = True
 while running:
@@ -44,6 +45,8 @@ while running:
 
     main_screen.fill(Colors.WHITE)
     draw_grid(main_screen)
+
+    main_screen.blit(food.surface, food.rect)
 
     snake.update(pressed_keys)
     # main_screen.blit(snake.surface, snake.rect)
