@@ -26,7 +26,7 @@ class Snake(pygame.sprite.Sprite):
             )
         )
         self.direction = 'UP'
-        self.snake_body = [self.rect]
+        self.snake_body = [self.rect.copy()]
 
     def update(self, keys_pressed):
         if keys_pressed[K_UP]:
@@ -39,6 +39,8 @@ class Snake(pygame.sprite.Sprite):
             self.direction = 'RIGHT'
 
         self.rect.move_ip(Snake.DIRECTIONS[self.direction])
+        self.snake_body.insert(0, self.rect.copy())
+        self.snake_body.pop()
 
         if self.rect.x < 0:
             self.rect.x += SCREEN_WIDTH
@@ -48,3 +50,7 @@ class Snake(pygame.sprite.Sprite):
             self.rect.x -= SCREEN_WIDTH + SQUARE_LENGTH
         if self.rect.y > SCREEN_HEIGHT:
             self.rect.y -= SCREEN_HEIGHT + SQUARE_LENGTH
+
+    def draw(self, surface):
+        for rect in self.snake_body:
+            pygame.draw.rect(surface, Snake.SNAKE_SQUARES_COLOR, rect)

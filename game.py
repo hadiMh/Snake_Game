@@ -46,7 +46,8 @@ while running:
     draw_grid(main_screen)
 
     snake.update(pressed_keys)
-    main_screen.blit(snake.surface, snake.rect)
+    # main_screen.blit(snake.surface, snake.rect)
+    snake.draw(main_screen)
 
     pygame.display.flip()
 
