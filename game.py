@@ -1,12 +1,28 @@
 import pygame
 from pygame import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, SQUARE_LENGTH
 from constants import Colors
 
 pygame.init()
 main_screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 clock = pygame.time.Clock()
+
+
+def draw_grid(surface):
+    square_length = SQUARE_LENGTH
+    square_color = None
+
+    for i in range(int(SCREEN_WIDTH / square_length)):
+        for j in range(int(SCREEN_HEIGHT / square_length)):
+            if (i + j) % 2 == 0:
+                square_color = Colors.M_BLUE_LIGHT
+            else:
+                square_color = Colors.WHITE
+
+            rect = pygame.Rect((i * square_length, j * square_length), (square_length,) * 2)
+            pygame.draw.rect(surface, square_color, rect)
+
 
 running = True
 while running:
@@ -21,6 +37,7 @@ while running:
                 running = False
 
     main_screen.fill(Colors.WHITE)
+    draw_grid(main_screen)
 
     pygame.display.flip()
 
