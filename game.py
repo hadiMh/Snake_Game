@@ -29,6 +29,9 @@ def draw_grid(surface):
 snake = Snake()
 food = Food()
 
+snake_body_group = pygame.sprite.Group()
+snake_body_group.add(snake)
+
 running = True
 while running:
 
@@ -51,6 +54,11 @@ while running:
     snake.update(pressed_keys)
     # main_screen.blit(snake.surface, snake.rect)
     snake.draw(main_screen)
+
+    if pygame.sprite.spritecollideany(food, snake_body_group):
+        food.kill()
+        food = Food()
+        snake.add_length()
 
     pygame.display.flip()
 
