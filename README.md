@@ -1,5 +1,6 @@
 # Snake_Game
 ![python version](https://img.shields.io/github/pipenv/locked/python-version/hadiMh/Snake_Game?color=2196F3&logo=python&logoColor=white)
+![pygame version](https://img.shields.io/badge/dynamic/json?color=green&label=pygame&query=%24.default.pygame.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FhadiMh%2FSnake_Game%2Fmain%2FPipfile.lock&style=flat)
 ![code size](https://img.shields.io/github/languages/code-size/hadiMh/Snake_Game?color=2196F3)
 
 
