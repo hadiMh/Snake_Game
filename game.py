@@ -6,6 +6,7 @@ from constants import Colors
 from game_classes import Snake, Food
 
 pygame.init()
+pygame.display.set_caption('Snake | M.Hadi Hajihosseini')
 main_screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 clock = pygame.time.Clock()

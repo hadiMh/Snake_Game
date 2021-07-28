@@ -1,8 +1,8 @@
 # Snake_Game
-
+![python version](https://img.shields.io/github/pipenv/locked/python-version/hadiMh/Snake_Game?color=2196F3&logo=python&logoColor=white)
 ![code size](https://img.shields.io/github/languages/code-size/hadiMh/Snake_Game?color=2196F3)
 
-# Summary
+
 A simple snake game created with `python` and 'pygame`
 # Game
 ![gif_for_readme](https://user-images.githubusercontent.com/36237368/127323017-60c768b4-4ef8-4bc4-8a6d-c2416a6908a4.GIF)
